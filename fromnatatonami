@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Happiii Birthday Nami 🎂</title>
+
+  <!-- 🎉 Confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(180deg, #fef6e4, #fde2e2);
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 30px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      max-width: 420px;
+      text-align: center;
+      animation: floatIn 1.2s ease, wiggle 0.6s ease 1.2s;
+    }
+
+    @keyframes floatIn {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes wiggle {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(0.5deg); }
+      50% { transform: rotate(-0.5deg); }
+      75% { transform: rotate(0.3deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    h1 {
+      color: #f582ae;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .illustration {
+      font-size: 60px;
+      margin: 10px 0;
+    }
+
+    p {
+      color: #172c66;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      background: #fff1c1;
+      padding: 12px;
+      border-radius: 15px;
+      margin: 15px 0;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 20px;
+      background: #8bd3dd;
+      color: #001858;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #f582ae;
+      color: white;
+    }
+
+    .secret {
+      display: none;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #001858;
+    }
+
+    footer {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🎵 Musik lembut -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c8c2d8c5b.mp3?filename=soft-piano-ambient-110624.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+    <div class="illustration">🐻🎂✨</div>
+
+    <h1>happiii birthday, namii! 🤍</h1>
+
+    <p>
+      you've been through hell and back to become the nami you are now...  
+      <br><br>
+      <b>nata</b> is honestly beyond proud of you! 🥳☝🏻☝🏻
+    </p>
+
+    <div class="highlight">
+      i know things are tough right now and you're working so hard for your goals,  
+      but just keep going.  
+      <br><br>
+      you’ve conquered so many storms before,  
+      and i know you’ll crush this one too 🫷😼
+    </div>
+
+    <p>
+      🤍 i hope this new chapter brings you all the peace  
+      and happiness you deserve 🤍
+    </p>
+
+    <button onclick="showSecret()">📌 just a reminder 📌</button>
+
+    <div class="secret" id="secret">
+      that i'll always have your back,  
+      no matter what storms come next 😼☝🏻  
+      <br><br>
+      enjoy your dayyy, nami!! 🥳
+    </div>
+
+    <footer>— from nata 🤍</footer>
+  </div>
+
+  <script>
+    const colors = ['#f582ae', '#8bd3dd', '#fde2e2', '#fff1c1'];
+
+    // 🎉 Confetti pas web dibuka
+    window.onload = function () {
+      confettiBurst(2200);
+    };
+
+    // 🎊 Confetti pas klik "just a reminder"
+    function showSecret() {
+      document.getElementById("secret").style.display = "block";
+      confettiBurst(1500);
+    }
+
+    function confettiBurst(duration) {
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 4,
+          angle: 60,
+          spread: 50,
+          origin: { x: 0 },
+          colors: colors
+        });
+        confetti({
+          particleCount: 4,
+          angle: 120,
+          spread: 50,
+          origin: { x: 1 },
+          colors: colors
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    }
+  </script>
+
+</body>
+</html>
